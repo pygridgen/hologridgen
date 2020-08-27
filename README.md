@@ -14,7 +14,7 @@ Also want to persist the various control points and matrices that the user manip
 
 ### Focusing
 Probably will need an extensible class hierarchy with some focus spacing functions, each with their own parameterization
-See the Focus class https://github.com/hetland/pygridgen/blob/master/pygridgen/grid.py#L512, which is a callable that can be configured to add local Gaussian distortions
+See the Focus class https://github.com/pygridgen/pygridgen/blob/master/pygridgen/grid.py#L120, which is a callable that can be configured to add local Gaussian distortions
 
 ### Coastlines
 Need to display coastlines, which aren't necessarily just Cartopy's coastline files; often it will be a high-res local creekbed shapefile.
