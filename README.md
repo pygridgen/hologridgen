@@ -1,5 +1,7 @@
 # holo-gridgen
-GUI interface to pygridgen using the [Holoviz](holoviz.org) tool suite, using panel, holoviews and geoviews
+WIP: GUI interface to pygridgen using the [Holoviz](holoviz.org) tool suite, using panel, holoviews and geoviews
+
+## The Plan: 
 
 ### Interface
 GUI with control points plotted in the context of coastlines, bathymetry
