@@ -1,7 +1,7 @@
 # holo-gridgen
 WIP: GUI interface to pygridgen using the [Holoviz](holoviz.org) tool suite, using panel, holoviews and geoviews
 
-![holoviz fig](https://github.com/pygridgen/holo-gridgen/blob/master/images/holo-gridgen.png)
+![holoviz fig](https://github.com/pygridgen/holo-gridgen/blob/master/images/holo-gridgen.png =450x)
 ## The Plan: 
 
 ### Interface
