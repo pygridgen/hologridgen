@@ -318,8 +318,8 @@ class GridEditor(param.Parameterized):
             if self.focus is not None:
                 kwargs['focus'] = self.focus
             self.grid = pgg.Gridgen(gdf.geometry.x, gdf.geometry.y, gdf.polarity, **kwargs)
-
-            zs = np.random.rand(len(self.grid.x)-1, len(self.grid.y)-1)
+            xdim, ydim = self.grid.x.shape
+            zs = np.ones((xdim-1, ydim-1))
             self.qmesh = hv.QuadMesh((np.array(self.grid.x), np.array(self.grid.y), zs))
             return self.qmesh.opts(**self.mesh_style, fill_alpha=0)
 
