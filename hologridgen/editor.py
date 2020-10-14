@@ -91,6 +91,11 @@ class GridEditor(param.Parameterized):
     ul_idx=param.Integer(default=0, precedence=-1,
                          doc='Upper left index: parameter of grid generation')
 
+    polarity_value = param.Dict(default={'+':1, '0':0, '-':-1}, precedence=-1, doc="""
+      Beta values to associate with the three node polarities (positive
+      '+', neutral '0' and negative '-'). Setting '+':4/3 for instance
+      enables grid generation with only three positive nodes.""")
+
     # Parameters not in the GUI for Pythonic data access
 
     focus = param.ClassSelector(default=None, class_=pgg.Focus,
@@ -174,7 +179,6 @@ class GridEditor(param.Parameterized):
 
     _columns = ['color', 'polarity', 'x', 'y']
 
-    _polarity_value = {'+':1, '0':0, '-':-1}
 
     def __init__(self, data=None, **params):
         data_params = {} if data is None else {k:v for k,v in data.items()
@@ -227,7 +231,7 @@ class GridEditor(param.Parameterized):
         if len(df) == 0:
             return GridEditor()
         allowed = [el for el in cls._columns if el != 'geometry']
-        color_vals = {v:k for k,v in cls._polarity_value.items()}
+        color_vals = {v:k for k,v in cls.polarity_value.items()}
         data = {k:list(v) for k,v in df.to_dict(orient='list').items() if k in allowed}
         data['color'] = [color_vals[p] for p in data['polarity']]
         data['polarity'] = data['color']
@@ -238,7 +242,7 @@ class GridEditor(param.Parameterized):
         "Property returning the boundary GeoDataFrame"
         exclude = ['color']
         data = self._node_stream.data
-        polarity = [self._polarity_value[c] for c in data['color']]
+        polarity = [self.polarity_value[c] for c in data['color']]
         df_data = {c:[el for el in v] for c,v in data.items() if c not in exclude}
         df_data['polarity'] = polarity
         df = pd.DataFrame(df_data)
@@ -261,7 +265,7 @@ class GridEditor(param.Parameterized):
         data = self._node_stream.data
 
         if len(data['x']) > 3:
-            summed = sum(self._polarity_value[el] for el in data['color'])
+            summed = sum(self.polarity_value[el] for el in data['color'])
             return (summed == 4)
         else:
             return False
