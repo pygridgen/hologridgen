@@ -6,10 +6,6 @@ required = {'param':">=1.10.0",
             'geopandas':">=0.8.1",
             'holoviews':">=1.0.1"}
 
-
-setup_args['requires']=["%s (%s)" % (package, version)
-                        for package,version in required.items()]
-
 setup_args = dict(
     name='hologrid',
     version='0.0.1',
@@ -24,7 +20,6 @@ setup_args = dict(
     provides=["hologrid"],
     include_package_data = True,
     python_requires=">=3.5",
-    requires=requires,
     project_urls={
         "Bug Tracker": "https://github.com/pygridgen/hologrid/issues",
         "Source Code": "https://github.com/pygridgen/hologrid",
@@ -43,6 +38,9 @@ setup_args = dict(
         "Topic :: Scientific/Engineering",
         "Topic :: Software Development :: Libraries"]
 )
+
+setup_args['requires']=["%s (%s)" % (package, version)
+                        for package,version in required.items()]
 
 
 if __name__=="__main__":
