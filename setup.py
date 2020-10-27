@@ -8,24 +8,24 @@ required = {'param':">=1.10.0",
 
 setup_args = dict(
     name='hologrid',
-    version='0.0.1',
+    version='1.0.0',
     description='',
     long_description=open('README.md').read(),
+    long_description_type='text/markdown',
     author="jlstevens",
     author_email="jstevens@anaconda.com",
     platforms=['Windows', 'Mac OS X', 'Linux'],
-    license='BSD',
+    license='CC0',
     url='https://github.com/pygridgen/hologrid',
     packages=["hologrid"],
     provides=["hologrid"],
-    include_package_data = True,
     python_requires=">=3.5",
     project_urls={
         "Bug Tracker": "https://github.com/pygridgen/hologrid/issues",
         "Source Code": "https://github.com/pygridgen/hologrid",
     },
     classifiers=[
-        "License :: OSI Approved :: BSD License",
+        "License :: OSI Approved :: CC0",
         "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
@@ -39,7 +39,7 @@ setup_args = dict(
         "Topic :: Software Development :: Libraries"]
 )
 
-setup_args['requires']=["%s (%s)" % (package, version)
+setup_args['install_requires']=["%s (%s)" % (package, version)
                         for package,version in required.items()]
 
 

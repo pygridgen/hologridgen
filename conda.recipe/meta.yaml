@@ -1,0 +1,36 @@
+package:
+  name: hologrid
+  version: 1.0.0
+
+build:
+  number: 0
+  noarch: python
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+source:
+  path: ..
+  
+requirements:
+  build:
+    - python
+  run:
+    - holoviews >=1.13.5
+    - geopandas >=0.8.1
+    - pygridgen >=0.2.1
+    - geoviews >=1.8.2
+    - param >=1.10.0
+    - panel >=0.10.0
+
+test:
+  imports:
+    - hologrid
+
+about:
+  home: https://github.com/pygridgen/holo-gridgen
+  license: CC0
+  license_file: LICENSE
+  summary: 'Interactive tool for the generation of orthonormal grids'
+  description: |
+    Interactive tool for the generation of orthonormal grids using
+    pygridgen and the HoloViz tool suite for use within Jupyter
+    notebooks or deployable with Panel.
