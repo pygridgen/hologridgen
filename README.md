@@ -1,30 +1,73 @@
-# holo-gridgen
-WIP: GUI interface for configuring pygridgen using the [HoloViz](holoviz.org) tool suite, including Panel, HoloViews, and GeoViews
+# hologrid
 
-<img src="https://github.com/pygridgen/holo-gridgen/blob/master/images/holo-gridgen.png" width="450"/>
+Interactive tool for the generation of orthonormal grids using
+[pygridgen](https://github.com/pygridgen/pygridgen) and the
+[HoloViz](holoviz.org) tool suite for use within [Jupyter
+notebooks](https://jupyter.org/) or deployable with
+[Panel](panel.pyviz.org).
 
-## The Plan: 
+## Installation
 
-### Interface
-GUI with control points plotted in the context of coastlines, bathymetry
+Until hologrid is made available on conda-forge you can install it as
+follows in a Python 3.7 conda environment:
 
-### Persistence
-- The final output that goes to the simulation is just the actual grid
-- Also want to persist the various control points and matrices that the user manipulates so that a user can re-generate grids later with some modifications
+```
+conda install -c jlstevens -c conda-forge hologrid
+```
 
-### Focusing
-- Probably will need an extensible class hierarchy with some focus spacing functions, each with their own parameterization
--See the [Focus class](https://github.com/pygridgen/pygridgen/blob/master/pygridgen/grid.py#L120), which is a callable that can be configured to add local Gaussian distortions
+If you need a new, blank Python 3.7 conda environment, you can create it
+and activate it using:
 
-### Coastlines
-- Need to display coastlines, which aren't necessarily just Cartopy's coastline files; often it will be a high-res local creekbed shapefile.
-- UI should allow user to input their own coastline shapefile
+```
+conda create -n hologrid python=3.7
+conda activate hologrid
+```
 
-### Projections
-- Points will need to be projected for display.
-- The projection needs to preserve orthogonality, so actual grid generation needs to use a conformal projection like Mercator or Lambert Conformal
-- Display will thus ideally will also use a conformal projection, but maybe it's not that important; a nearly conformal projection like [Web Mercator](https://en.wikipedia.org/wiki/Web_Mercator_projection#:~:text=Unlike%20the%20ellipsoidal%20Mercator%2C%20however,to%20be%20noticeable%20by%20eye.) may be ok.
 
-### Nested grids:
-- Needed eventually, but not urgent
-- Should work fine to postpone worrying about that until near the end or after this project completes, as it should slot in to whatever we do.
+## Core features
+
+* Add, move and delete nodes. First node indicated with a special marker (triangle by default)
+
+<img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/add-mode-delete.gif"></img>
+
+* Toggle node polarity (beta) with the Tap Tool. Generate Mesh button indicates when mesh generation is possible. Hide button to hide current grid/mesh.
+
+<img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/polarity-toggle.gif"></img>
+
+* Easy insertion of new nodes into edges selected with the Tap Tool (which can then be easily moved):
+
+<img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/edge_insertion.gif"></img>
+
+* Pythonic access of boundary as it is drawn and the grid once it is generated:
+
+<img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/pythonic-access.gif"></img>
+
+* Easy adjustment of node size and edge width via the GUI. Easy regeneration with different x- and y-resolutions:
+
+<img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/node-edge-size.gif"></img>
+
+* Easy selection between a predefined set of tile sources in the background:
+
+<img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/tilesources.gif"></img>
+
+* Easy use of a custom element (e.g a different tile source) as the background:
+
+<img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/custom_background.gif"></img>
+
+* Download boundary as GeoJSON:
+
+<img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/geojson_download.gif"></img>
+
+* Capture serializable editor state and restore from it (can also be restored from a geopandas boundary DataFrame):
+
+<img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/save_restore_state.gif"></img>
+
+* Set a focus function and update mesh accordingly:
+
+<img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/focus_edit.gif"></img>
+
+* Highly customizable styling of boundary, nodes and start marker:
+
+<img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/customizable_style.gif"></img>
+
+* Can be served as a Panel dashboard using the `serveable()` method.
