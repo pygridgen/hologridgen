@@ -70,4 +70,4 @@ conda activate hologrid
 
 <img width=400 src="https://github.com/pygridgen/holo-gridgen/blob/master/images/customizable_style.gif"></img>
 
-* Can be served as a panel dashboard using the `serveable()` method.
+* Can be served as a Panel dashboard using the `serveable()` method.

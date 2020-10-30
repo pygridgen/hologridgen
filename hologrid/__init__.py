@@ -19,6 +19,7 @@ class PolaritySwap(Link):
     """
     _requires_target = False
 
+
 class PolarityCallback(LinkCallback):
     """
     Client side JavaScript to toggle the node polarity (beta) value of
@@ -45,6 +46,7 @@ class PolarityCallback(LinkCallback):
     source_cds.properties.data.change.emit()
     source_cds.change.emit()
     """
+
 
 # Registering Link callback
 callbacks = Link._callbacks['bokeh']
