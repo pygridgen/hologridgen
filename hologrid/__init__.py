@@ -230,7 +230,7 @@ class GridEditor(param.Parameterized):
     @property
     def boundary(self):
         "Property returning the boundary GeoDataFrame"
-        exclude = ['color']
+        exclude = ['color', 'fill_alpha']
         data = self._node_stream.data
         polarity = [self.polarity_value[c] for c in data['color']]
         df_data = {c:[el for el in v] for c,v in data.items() if c not in exclude}
@@ -240,7 +240,7 @@ class GridEditor(param.Parameterized):
 
 
     @property
-    def data(self, exclude=['name', 'fill_alpha']):
+    def data(self, exclude=['name', 'fill_alpha', 'grid']):
         """
         Propery exposing serializable state of the editor that can be
         passed into the GridEditor constructor to restore that state
