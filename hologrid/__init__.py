@@ -1,18 +1,11 @@
-
-# hv.element.tiles.EsriImagery(
-# TILE_SOURCES -> Backgrounds
-# hologrid
-
-
-# obj[0].append(pn.widgets.File  < NOT NEEDED ADD STRAIGHT TO COLUMN
-import param
-import geopandas
-from io import BytesIO
 import numpy as np
 import pandas as pd
-import holoviews as hv
+from io import BytesIO
 
-#import geoviews as gv # BREAKS STUFF!
+import param
+import geopandas
+import holoviews as hv
+import geoviews as gv
 import panel as pn
 import pygridgen as pgg
 
