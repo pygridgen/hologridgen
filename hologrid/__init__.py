@@ -378,10 +378,9 @@ class GridEditor(param.Parameterized):
         hvobj = hv.Overlay(elements).collate()
         self.widgets = pn.Param(self.param,
                                 widgets={'edge_select_mode': pn.widgets.Toggle})
-        obj = pn.Row(pn.Column(self.widgets),
+        obj = pn.Row(pn.Column(self.widgets,
+                               pn.widgets.FileDownload(callback=self._geojson,
+                                                       filename='boundary.geojson')),
                      hvobj.opts(width=self.width, height=self.height))
-
-        obj[0].append(pn.widgets.FileDownload(callback=self._geojson,
-                                                    filename='boundary.geojson'))
         self.param.trigger('ready')
         return obj
