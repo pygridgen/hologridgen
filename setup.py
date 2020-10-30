@@ -4,7 +4,7 @@ required = {'param':">=1.10.0",
             'panel':">=0.10.0",
             'pygridgen':">0.2",
             'geopandas':">=0.8.1",
-            'holoviews':">=1.0.1"}
+            'holoviews':">=1.13.5"}
 
 setup_args = dict(
     name='hologrid',
