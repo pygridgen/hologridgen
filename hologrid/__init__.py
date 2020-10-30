@@ -52,16 +52,9 @@ callbacks[PolaritySwap] = PolarityCallback
 
 
 # Dictionary of possible tile sources to make available via the background dropdown menu
-# Currently uses HoloViews (not GeoViews) Tiles elements (WebMercator)
-WM_XLIM=(-20037508.342789244, 20037508.342789244)
-WM_YLIM=(-20037508.342789244, 20037508.342789244)
-
-TILE_SOURCES = {k:v.opts(xlim=WM_XLIM, ylim=WM_YLIM)
+TILE_SOURCES = {k:v.opts(global_extent=True)
                 for k,v in gv.tile_sources.tile_sources.items()}
-
 TILE_SOURCES['None'] = None
-TILE_SOURCES['Custom'] = None
-
 
 
 class GridEditor(param.Parameterized):
@@ -122,7 +115,7 @@ class GridEditor(param.Parameterized):
       Custom HoloViews element to use as the background when the
       background parameter is set to 'Custom'.""")
 
-    background = param.ObjectSelector('EsriUSATopo', objects=TILE_SOURCES.keys(), doc="""
+    background = param.ObjectSelector('None', objects=TILE_SOURCES.keys(), doc="""
       Selector of available default tile sources which can also be set
       to 'None' for no background or 'Custom' in which case the
       HoloViews/GeoViews element set in the custom_background parameter
@@ -350,11 +343,13 @@ class GridEditor(param.Parameterized):
         background
         """
         elements = []
-        if background == 'Custom':
-            if self.custom_background is not None:
+        if background != 'None':
+            elements = [TILE_SOURCES[background].opts(global_extent=True, alpha=1)]
+        elif background == 'None':
+            if self.custom_background:
                 elements = [self.custom_background]
-        elif background != 'None':
-            elements = [TILE_SOURCES[background]]
+            else:
+                elements = [TILE_SOURCES[list(TILE_SOURCES.keys())[0]].opts(alpha=0)]
         return hv.Overlay(elements)
 
 
