@@ -6,6 +6,24 @@ Interactive tool for the generation of orthonormal grids using
 notebooks](https://jupyter.org/) or deployable with
 [Panel](panel.pyviz.org).
 
+## Installation
+
+Until hologrid is made available on conda-forge you can install it as
+follows in a Python 3.7 conda environment:
+
+```
+conda install -c jlstevens -c conda-forge hologrid
+```
+
+If you need a new, blank Python 3.7 conda environment, you can create it
+and activate it using:
+
+```
+conda create -n hologrid python=3.7
+conda activate hologrid
+```
+
+
 ## Core features
 
 * Add, move and delete nodes. First node indicated with a special marker (triangle by default)
