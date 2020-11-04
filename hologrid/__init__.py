@@ -72,7 +72,7 @@ class GridEditor(param.Parameterized):
        * Serializable state to capture editor state between sessions
        * Customizable background tile sources or background tile elements.
 
-    For more information please visit https://github.com/pygridgen/holo-gridgen
+    For more information please visit https://github.com/pygridgen/hologridgen
     """
 
     # Algorithmic parameters hidden from the GUI
