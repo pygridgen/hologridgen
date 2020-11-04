@@ -1,5 +1,5 @@
 package:
-  name: hologrid
+  name: hologridgen
   version: 1.0.0
 
 build:
@@ -23,7 +23,7 @@ requirements:
 
 test:
   imports:
-    - hologrid
+    - hologridgen
 
 about:
   home: https://github.com/pygridgen/hologridgen

@@ -7,7 +7,7 @@ required = {'param':">=1.10.0",
             'holoviews':">=1.13.5"}
 
 setup_args = dict(
-    name='hologrid',
+    name='hologridgen',
     version='1.0.0',
     description='',
     long_description=open('README.md').read(),
@@ -16,13 +16,13 @@ setup_args = dict(
     author_email="jstevens@anaconda.com",
     platforms=['Windows', 'Mac OS X', 'Linux'],
     license='CC0',
-    url='https://github.com/pygridgen/hologrid',
-    packages=["hologrid"],
-    provides=["hologrid"],
+    url='https://github.com/pygridgen/hologridgen',
+    packages=["hologridgen"],
+    provides=["hologridgen"],
     python_requires=">=3.5",
     project_urls={
-        "Bug Tracker": "https://github.com/pygridgen/hologrid/issues",
-        "Source Code": "https://github.com/pygridgen/hologrid",
+        "Bug Tracker": "https://github.com/pygridgen/hologridgen/issues",
+        "Source Code": "https://github.com/pygridgen/hologridgen",
     },
     classifiers=[
         "License :: OSI Approved :: CC0",

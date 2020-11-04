@@ -1,4 +1,4 @@
-# hologrid
+# hologridgen
 
 Interactive tool for the generation of orthonormal grids using
 [pygridgen](https://github.com/pygridgen/pygridgen) and the
@@ -8,19 +8,19 @@ notebooks](https://jupyter.org/) or deployable with
 
 ## Installation
 
-Until hologrid is made available on conda-forge you can install it as
+Until hologridgen is made available on conda-forge you can install it as
 follows in a Python 3.7 conda environment:
 
 ```
-conda install -c jlstevens -c conda-forge hologrid
+conda install -c jlstevens -c conda-forge hologridgen
 ```
 
 If you need a new, blank Python 3.7 conda environment, you can create it
 and activate it using:
 
 ```
-conda create -n hologrid python=3.7
-conda activate hologrid
+conda create -n hologridgen python=3.7
+conda activate hologridgen
 ```
 
 
