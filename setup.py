@@ -8,7 +8,7 @@ required = {'param':">=1.10.0",
 
 setup_args = dict(
     name='hologridgen',
-    version='1.0.0',
+    version='1.0.2',
     description='',
     long_description=open('README.md').read(),
     long_description_type='text/markdown',
