@@ -25,7 +25,7 @@ setup_args = dict(
         "Source Code": "https://github.com/pygridgen/hologridgen",
     },
     classifiers=[
-        "License :: OSI Approved :: CC0",
+        "License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
         "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
