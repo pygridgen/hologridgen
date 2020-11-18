@@ -1,5 +1,5 @@
 package:
-  name: hologrid
+  name: hologridgen
   version: 1.0.0
 
 build:
@@ -23,10 +23,10 @@ requirements:
 
 test:
   imports:
-    - hologrid
+    - hologridgen
 
 about:
-  home: https://github.com/pygridgen/holo-gridgen
+  home: https://github.com/pygridgen/hologridgen
   license: CC0
   license_file: LICENSE
   summary: 'Interactive tool for the generation of orthonormal grids'
